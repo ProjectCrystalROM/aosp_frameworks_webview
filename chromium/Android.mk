@@ -75,7 +75,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 
 # Include the makefile for the main package unless we are using a prebuilt.
-ifneq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
+ifeq ($(filter yes,$(PRODUCT_PREBUILT_WEBVIEWCHROMIUM))$(filter true,$(M1_SOURCE_WEBVIEW_M95)),)
 extra_java_files :=
 include $(LOCAL_PATH)/package.mk
 endif
